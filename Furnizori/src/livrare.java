@@ -1,3 +1,5 @@
+import com.jakewharton.fliptables.FlipTableConverters;
+
 import java.util.List;
 
 class Livrare {
@@ -22,6 +24,10 @@ class Livrare {
 		
 	for (int cnt : cant)
 		System.out.println(cnt);
+
+	System.out.println(FlipTableConverters.fromIterable(fz, Furnizor.class));
+	System.out.println(FlipTableConverters.fromIterable(cmp, Componenta.class));
+
 }
   
 }
