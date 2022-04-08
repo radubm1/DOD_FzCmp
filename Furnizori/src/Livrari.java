@@ -37,7 +37,7 @@ public class Livrari {
         select idc, numec, culoare, um, idf, numef, stare, oras, cant from componente c, furnizori f, fapte l
         where c.id=l.idc and f.id=l.idf;""";
         ResultSet rs = st.executeQuery(SQL);
-        //System.out.println(FlipTableConverters.fromResultSet(rs));
+        System.out.println(FlipTableConverters.fromResultSet(rs));
         while (true) {
             try {
                 if (!rs.next()) break;
