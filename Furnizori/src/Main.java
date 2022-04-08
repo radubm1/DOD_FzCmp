@@ -11,7 +11,7 @@ public class Main {
 
 		Livrare l = liv.getLiv();
 		
-		//l.afiseaza();
+		l.afiseaza();
 
 		
 			

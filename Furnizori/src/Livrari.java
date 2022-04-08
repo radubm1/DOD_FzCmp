@@ -19,7 +19,7 @@ public class Livrari {
         //props.setProperty("ssl","false");
         List<Furnizor> fzs = new ArrayList<Furnizor>();
         List<Componenta> cmps = new ArrayList<Componenta>();
-        List<Integer> cants = new ArrayList<Integer>();
+        List<Cantitate> cants = new ArrayList<>();
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
@@ -37,7 +37,7 @@ public class Livrari {
         select idc, numec, culoare, um, idf, numef, stare, oras, cant from componente c, furnizori f, fapte l
         where c.id=l.idc and f.id=l.idf;""";
         ResultSet rs = st.executeQuery(SQL);
-        System.out.println(FlipTableConverters.fromResultSet(rs));
+        //System.out.println(FlipTableConverters.fromResultSet(rs));
         while (true) {
             try {
                 if (!rs.next()) break;
@@ -47,7 +47,8 @@ public class Livrari {
                 Furnizor fz = new Furnizor();
                 fz.setNume(rs.getString(6));fz.setStare(rs.getInt(7));fz.setOras(rs.getString(8));
                 fzs.add(fz);
-                cants.add(rs.getInt(9));
+
+                cants.add(new Cantitate(rs.getInt(9)));
             } catch (SQLException e) {
                 e.printStackTrace();
             }
